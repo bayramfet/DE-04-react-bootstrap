@@ -1,27 +1,49 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-
-const CourseCard = ({ dataa }) => {
-  // console.log(dataa);
+import {
+  Navbar,
+  Container,
+  Nav,
+  NavDropdown,
+  Form,
+  Button,
+} from "react-bootstrap";
+import logo from "../../CLARUSWAY_UNDER-MIDDLE-SCALE_1917x399.png";
+const MyNavbar = () => {
   return (
-    <Container className="text-center mt-4 p-4 ">
-      <Row className="g-3">
-        {dataa.map((eleman) => {
-          return (
-            <Col sm={12} md={6} lg={4} >
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={eleman.img} />
-                <Card.Body>
-                  <Card.Title>{eleman.name}</Card.Title>
-                  <Card.Text>{eleman.text}</Card.Text>
-                  <Button variant="primary">DETAYLAR</Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          );
-        })}
-      </Row>
-    </Container>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand href="#">
+          {" "}
+          <img src={logo} alt="" />{" "}
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="navbarScroll" />
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="ms-auto my-2 my-lg-0 "
+            style={{ maxHeight: "100px" }}
+            navbarScroll
+          >
+            <Nav.Link href="#action1">Home</Nav.Link>
+            <Nav.Link href="#action2">People</Nav.Link>
+            <NavDropdown title="Courses" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Full-stack</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Data Science</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action5">Devops</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default CourseCard;
+export default MyNavbar;
